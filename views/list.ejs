@@ -1,0 +1,19 @@
+<%- include("header") -%>
+    <div class="box" id="heading">
+        <h1><%=listTitle%></h1>
+    </div>
+    <div class="box">
+
+            <%for(let i=0;i<todoitem.length;i++){%>
+                <div class="item">
+                    <input type="checkbox"><p><%=todoitem[i]%></p>
+                </div>
+            <%}%>
+            <form class="item" action="/" method="post">
+                <input type="text" name="todo" placeholder="New Item" autocomplete="off">
+                <button type="submit" name="list" value=<%=listTitle%>>+</button>
+                <!--button attribute value=<%=listTitle%> is not a string type.Hence,only the first word gets parsed by the body parser and not the whole string.
+                    But if you write value=" <%=listTitle%> " ,then it becomes a string and whole sentence is parsed.-->
+            </form>
+    </div>
+<%- include("footer")-%>
